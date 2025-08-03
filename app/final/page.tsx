@@ -1,8 +1,9 @@
 "use client";
-import React, { useRef } from "react";
+
+import React, { Suspense, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 
-export default function Final() {
+function FinalContent() {
   const searchParams = useSearchParams();
   const printRef = useRef<HTMLDivElement>(null);
 
@@ -61,5 +62,13 @@ export default function Final() {
         </button>
       </div>
     </div>
+  );
+}
+
+export default function FinalPage() {
+  return (
+    <Suspense fallback={<div>Loading final...</div>}>
+      <FinalContent />
+    </Suspense>
   );
 }
