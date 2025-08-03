@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useRef } from "react";
 import { useRouter } from 'next/navigation';
-import { useSearchParams } from "next/navigation";
 
 export default function Preview() {
   const [formData, setFormData] = useState({
@@ -12,7 +11,6 @@ export default function Preview() {
     description: "",
   });
   const router = useRouter();
-  const searchParams = useSearchParams();
   const printRef = useRef<HTMLDivElement>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
